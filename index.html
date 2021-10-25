@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dirigindo</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="imagem-acao">
+            <img class="imagem-acao--gif" src="/assets/images/parado.jpg" alt="Carro Parado" />
+        </div>
+
+        <div class="area_table">
+            <table>
+                <tr>
+                    <th>Carro</th>
+                    <th>Acelerador</th>
+                    <th>Freio</th>
+                    <th>Freio de Mão</th>
+                    <th>Embreagem</th>
+                </tr>
+                <tr>
+                    <td id="carro">Desligado</td>
+                    <td id="acelerador">Livre</td>
+                    <td id="freio">Livre</td>
+                    <td id="freiodemao">Puxado</td>
+                    <td id="embreagem">Livre</td>
+                </tr>
+            </table>
+
+        </div>
+        <div class="area-acoes">
+            <h1 id="statusCarro">Desligado</h1>
+            <h2 id="acaoCarro">...</h2>
+        </div>
+
+
+        <div class="area-troca-marchas">
+            <div class="marchas">
+                <div>
+                    <button id="re" onclick="carro.engatare()">R</button>
+                    <button id="primeira" onclick="carro.engataprimeira()">1</button>
+                    <button id="terceira" onclick="carro.engataterceira()">3</button>
+                    <button id="quinta" onclick="carro.engataquinta()">5</button>
+                </div>
+                <div>
+                    <button id="neutro" onclick="carro.engataneutro()">N</button>
+                </div>
+                <div class="margin-esquerda">
+                    <button id="segunda" onclick="carro.engatasegunda()">2</button>
+                    <button id="quarta" onclick="carro.engataquarta()">4</button>
+                </div>
+
+
+            </div>
+            <div class="area-barras">
+                <div class="area-barra-rotacao">
+                    <h2 id="status-rotacao">Sem Rotação</h2>
+                    <div class="barra-rotacao">
+                        <input type="range" min="0" max="100" step="10" value="0" id="rotacoes" />
+                        <div class="progress-bar-aceleracao"></div>
+                    </div>
+                </div>
+                <div class="area-barra-embreagem">
+                    <h2 id="status-embreagem">Embreagem Solta</h2>
+                    <div class="barra-embreagem">
+                        <input type="range" min="0" max="100" step="10" value="0" id="pressaoembreagem" />
+                        <div class="progress-bar-embreagem "></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="botoes-comandos">
+            <table>
+                <tr>
+                    <th>Partida</th>
+                    <th>Acelerador</th>
+                    <th>Freio</th>
+                    <th>Freio de Mão</th>
+                    <th>Embreagem</th>
+                </tr>
+                <tr>
+                    <td class="botoes-comandos-opcoes">
+                        <button onclick="carro.ligar()">Partida</button>
+                        <button onclick="carro.desligar()">Desligar</button>
+                    </td>
+                    <td class="botoes-comandos-opcoes">
+                        <button id="btn" onclick="carro.pisaracelerador(20)">Acelerar</button>
+                        <button onclick="carro.soltaracelerador(20)">Soltar Acelerador</button>
+                    </td>
+                    <td class="botoes-comandos-opcoes">
+                        <button onclick="carro.pisarfreio(30)">Frear</button>
+                        <button onclick="carro.soltarfreio()">Soltar Freio</button>
+                    </td>
+                    <td class="botoes-comandos-opcoes">
+                        <button onclick="carro.subirfreiodemao()">Subir Freio de Mão</button>
+                        <!--Trava-->
+                        <button onclick="carro.descerfreiodemao()">Descer Freio de Mão</button>
+                        <!--Solta-->
+                    </td>
+                    <td>
+                        <button onclick="carro.pisarembreagem(100)">Pisar Embreagem</button>
+                        <button onclick="carro.soltarembreagem(50)">Soltar Embreagem</button>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+</body>
+
+</html>

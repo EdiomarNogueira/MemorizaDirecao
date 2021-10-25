@@ -1,0 +1,215 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/**/
+
+th {
+    background-color: #ccc;
+    color: rgb(34, 34, 34);
+}
+
+td {
+    background-color: rgb(139, 139, 139);
+    color: #fff;
+}
+
+tr,
+td,
+th {
+    padding: 10px;
+    border: 2px solid black;
+    text-align: center;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 120px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    padding: 20px;
+    height: 900px;
+    background-color: rgb(136, 183, 223);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.imagem-acao {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.imagem-acao--gif {
+    width: 400px;
+    height: 220px;
+    object-fit: cover;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.area-acoes {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #444;
+}
+
+.area-acoes h1 {
+    color: #fff;
+    border-bottom: 2px solid #ccc;
+}
+
+.area-acoes h2 {
+    color: #fff;
+    font-size: 600;
+}
+
+.botoes-comandos button {
+    height: 40px;
+    width: 140px;
+    margin: 5px;
+    border-radius: 6px;
+}
+
+.botoes-comandos button:hover {
+    background-color: #ccc;
+}
+
+.botoes-comandos-opcoes td {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.area_table {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.area_table td {
+    font-size: medium;
+}
+
+.area-troca-marchas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.marchas {
+    width: 200px;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 80px;
+    margin: 20px;
+    background-image: url(/assets/images/bg-couro.jpg);
+    background-size: cover;
+    border: 4px solid #ccc;
+}
+
+.marchas button {
+    width: 30px;
+    height: 30px;
+    margin: 10px 5px;
+    border: 2px solid rgb(34, 33, 33);
+    background-color: rgb(226, 226, 226);
+    border-radius: 6px;
+}
+
+.acionado {
+    background-color: rgb(25, 158, 114)!important;
+}
+
+
+/**/
+
+.area-barras {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.area-barra-rotacao,
+.area-barra-embreagem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    padding: 20px;
+}
+
+.barra-rotacao,
+.barra-embreagem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#rotacoes,
+#pressaoembreagem {
+    display: none;
+}
+
+.progress-bar-aceleracao {
+    --progress: 0;
+    height: 20px;
+    width: 400px;
+    padding: 5px;
+    background-color: #ccc;
+    display: flex;
+    margin: 10px;
+}
+
+.progress-bar-aceleracao::before {
+    content: "";
+    width: calc(var(--progress) * 1%);
+    background-color: hsl( calc(var(--progress) * 3.6), 90%, 50%);
+}
+
+.progress-bar-embreagem {
+    --progress: 0;
+    height: 20px;
+    width: 400px;
+    padding: 5px;
+    background-color: #ccc;
+    display: flex;
+    margin: 10px;
+}
+
+.progress-bar-embreagem::before {
+    content: "";
+    width: calc(var(--progress) * 1%);
+    background-color: hsl( calc(var(--progress) * 2), 90%, 40%);
+}
