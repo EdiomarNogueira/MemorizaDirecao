@@ -114,7 +114,7 @@ function pressaoembreagem(pressao) {
 };
 
 function trocaimagem(filename, nomeImagem) {
-    document.querySelector('.imagem-acao--gif').setAttribute('src', '/assets/images/' + filename);
+    document.querySelector('.imagem-acao--gif').setAttribute('src', '/memorizadirecao/assets/images/' + filename);
     document.querySelector('.imagem-acao--gif').setAttribute('alt', nomeImagem);
 
 }
