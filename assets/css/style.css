@@ -213,3 +213,7 @@ button {
     width: calc(var(--progress) * 1%);
     background-color: hsl( calc(var(--progress) * 2), 90%, 40%);
 }
+
+.aviso {
+    font-size: 12px;
+}
