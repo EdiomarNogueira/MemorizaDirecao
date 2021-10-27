@@ -2,7 +2,18 @@ function motorMorre() {
     document.getElementById("statusCarro").innerHTML = carro.nome + " Motor Morreu";
     document.getElementById("acaoCarro").innerHTML = "O Carro Precisa de Mais Aceleração Para Subir a Marcha";
     trocaimagem('morreu.gif', 'Imagem Pessoa Nervosa');
+    document.querySelector('#carro').classList.remove('acionado');
+    carro.partida = false;
 };
+
+function solteFreioDeMao() {
+    document.getElementById("statusCarro").innerHTML = carro.nome + " Motor Morreu";
+    document.getElementById("acaoCarro").innerHTML = "Solte o Freio de Mão!!!";
+    trocaimagem('morreu.gif', 'Imagem Pessoa Nervosa');
+    document.querySelector('#carro').classList.remove('acionado')
+    carro.partida = false;
+
+}
 
 function trocaerrada() {
     document.getElementById("statusCarro").innerHTML = carro.nome + " Troca de Marcha com 'Soluço'";
@@ -14,6 +25,10 @@ function faltaEmbreagem() {
     document.getElementById("statusCarro").innerHTML = carro.nome + " Motor Morreu";
     document.getElementById("acaoCarro").innerHTML = "Precione a Embreagem Até o Final!!!";
     trocaimagem('morreu.gif', 'Imagem Pessoa Nervosa');
+    document.querySelector('#carro').classList.remove('acionado');
+    carro.partida = false;
+
+
 }
 
 let valorrotacao = 0;
@@ -88,6 +103,8 @@ function pressaoembreagem(pressao) {
         trocastatus('embreagem', 'Pressionada');
         document.querySelector('#embreagem').classList.add('acionado')
 
+    } else if (valorpressao == 0) {
+        document.querySelector('#embreagem').classList.remove('acionado');
     }
     console.log(valorpressao);
     document.querySelector('#pressaoembreagem').value = valorpressao;
@@ -144,12 +161,17 @@ function mudamarcha(novamarcha) {
                     if (valorrotacao < 20) {
                         console.log("aceleracao insuficiente");
                         motorMorre();
-                    } else {
+                    } else if ((carro.freiodemao == true || carro.freio == true) && carro.embreagem == true) {
                         valoraceleracao(-20);
                         this.neutro = false;
                         this.primeira = true;
+                        this.freiodemao = false;
+                        this.freio = false;
+
                         document.querySelector('#primeira').classList.add('acionado');
                         document.querySelector('#neutro').classList.remove('acionado');
+                        document.querySelector('#freiodemao').classList.remove('acionado');
+                        document.querySelector('#freio').classList.remove('acionado');
                         document.getElementById("statusCarro").innerHTML = carro.nome + " Troca de Marcha - Primeira";
                         document.getElementById("acaoCarro").innerHTML = "Aqui anda até uns 15km/h";
                         trocaimagem('primeira.gif', 'Na primeira marcha');
@@ -444,6 +466,18 @@ let carro = {
         this.freio = false;
         document.querySelector('#freio').classList.remove('acionado')
         trocastatus('freio', 'Livre');
+
+        if (this.freiodemao == false && (this.acelerar == false || carro.neutro == true)) {
+            document.getElementById("statusCarro").innerHTML = carro.nome + " Em movimento";
+            trocaimagem('freiodemaosemfreio.gif', 'Imagem Carro em Movimento');
+        } else if (this.freiodemao == false) {
+            document.getElementById("acaoCarro").innerHTML = "Engate a Primeira e Faça Meia Embreagem Antes de Soltar o Freio de Mão!!!";
+
+        } else if (carro.neutro == true) {
+            document.getElementById("acaoCarro").innerHTML = "Engate a Primeira e Faça Meia Embreagem!!!";
+
+        }
+
     },
 
 
